@@ -1,4 +1,4 @@
-from google.appengine.api import ndb
+from google.appengine.ext import ndb
 
 DEFAULT_STORE_NAME = "default_store"
 
@@ -35,11 +35,15 @@ class Product(ndb.Model):
     power_rating = ndb.StringProperty()
     weight = ndb.FloatProperty()
     height = ndb.FloatProperty()
-    width = ndb.FloatPrperty()
-    condition = ndb.StringProperty(choices=["New", "Refurbished", "Used--Good", "Used--Acceptable"]])
+    width = ndb.FloatProperty()
+    condition = ndb.StringProperty(choices=["New", "Refurbished", "Used--Good", "Used--Acceptable"])
 #    photos = ndb.StructuredProperty(Photo, repeated=True)
     ship_within = ndb.IntegerProperty()
     listing_start = ndb.DateTimeProperty()
     listing_end = ndb.DateTimeProperty()
     created_at = ndb.DateTimeProperty(required=True, auto_now_add=True)
     updated_at = ndb.DateTimeProperty(required=True, auto_now=True)
+
+    @classmethod
+    def query_store(cls, ancestor_key):
+        return cls.query(ancestor=ancestor_key)

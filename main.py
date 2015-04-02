@@ -1,11 +1,12 @@
 import webapp2
-import models
+from models import store_key, Product
 
 class MainPage(webapp2.RequestHandler):
-    def.get(self):
-        self.response.headers["Content-Type"] = "text/plain"
-        self.response.write("Hello, World!")
+    def get(self):
+    	product = Product(parent=store_key(), name="Test Product", description="Whatever", price=0.99)
+    	product_key = product.put()
+    	self.response.write(str(product_key))
 
-applicaton = webapp2.WSGIApplication([
-    ("/", MainPage),
-    ], debug=True)
+app = webapp2.WSGIApplication([
+    ('/', MainPage),
+], debug=True)
