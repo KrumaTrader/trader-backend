@@ -8,8 +8,8 @@ class ProductRepr(messages.Message):
     description = messages.StringField(2)
     price = messages.FloatField(3)
     type_ = messages.StringField(4)
-    keywords = messages.StringField(5)
-    category = messages.StringField(6)
+    keywords = messages.StringField(5, repeated=True)
+    category = messages.StringField(6, repeated=True)
     brand_name = messages.StringField(7)
     model = messages.StringField(8)
     shipping_method = messages.StringField(9)
@@ -32,5 +32,5 @@ class ProductRepr(messages.Message):
     created_at = message_types.DateTimeField(25)
     updated_at = message_types.DateTimeField(26)
 
-class ProductCatalog(messages.Message):
+class ProductList(messages.Message):
     products = messages.MessageField(ProductRepr, 1, repeated=True)

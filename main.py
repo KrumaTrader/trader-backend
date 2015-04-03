@@ -5,10 +5,11 @@ from google.appengine.ext import ndb
 
 class MainPage(webapp2.RequestHandler):
     def get(self):
-        query = Product.query()
-        res = query.fetch()
-        for r in res:
-            self.response.write("<br>")
+    	product = Product(
+    		parent=ndb.Key("User", "arnoblalam"), 
+    		name="Test Product", 
+    		description="Whatever", price=0.99)
+    	product_key = product.put()
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
