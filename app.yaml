@@ -5,5 +5,8 @@ threadsafe: true
 api_version: 1
 
 handlers:
+- url: /_ah/spi/.*
+  script: api.app
+
 - url: /.*
   script: main.app
