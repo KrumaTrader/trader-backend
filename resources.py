@@ -31,6 +31,7 @@ class ProductRepr(messages.Message):
     listing_end = message_types.DateTimeField(24)
     created_at = message_types.DateTimeField(25)
     updated_at = message_types.DateTimeField(26)
+    key = messages.StringField(27)
 
 class ProductList(messages.Message):
     products = messages.MessageField(ProductRepr, 1, repeated=True)
