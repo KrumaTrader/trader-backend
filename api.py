@@ -51,7 +51,8 @@ def serialize(product):
 def deserialize(message):
     """Deserialize a message into a product
     Args:
-        message(resources.ProductRepr):  The message, which will be turned into a product
+        message(resources.ProductRepr):  The message, which will be turned
+                                          into a product
     Returns:
         models.Product: The product representation of the message
     Raises:
