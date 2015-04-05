@@ -10,7 +10,7 @@ from google.appengine.ext import ndb
 
 
 def serialize(product):
-    """Serialize a product into message represenation
+    """Serialize a product into message representation
     Args:
         product(models.Product): The product to serialize into a message object
     Returns:
