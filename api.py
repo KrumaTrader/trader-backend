@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import endpoints
 from google.appengine.ext import ndb
 from protorpc import remote
@@ -43,7 +45,9 @@ class Product(EndpointsModel):
     updated_at = ndb.DateTimeProperty(required=True, auto_now=True)
 
 
-@endpoints.api(name="traderapi", version="v1", description="API for KrumaTrader")
+@endpoints.api(name="traderapi",
+               version="v1",
+               description="API for KrumaTrader")
 class TraderAPI(remote.Service):
     @Product.method(path="product", name="product.insert")
     def ProductInsert(self, model):
