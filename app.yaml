@@ -1,4 +1,4 @@
-application: bojangles
+application: trader-backend
 version: 1
 runtime: python27
 threadsafe: true

@@ -7,6 +7,7 @@ from protorpc import message_types
 
 from endpoints_proto_datastore.ndb import EndpointsModel
 
+
 class Product(EndpointsModel):
     """A model for representing a product"""
     _message_fields_schema = (
