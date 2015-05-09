@@ -7,12 +7,6 @@ from protorpc import message_types
 
 from endpoints_proto_datastore.ndb import EndpointsModel
 
-# class Photo:
-#    """A submodel for photos associated with a product"""
-#    description = ndb.TextProperty(required=True)
-#    data = ndb.blobProperty()
-
-
 class Product(EndpointsModel):
     """A model for representing a product"""
     _message_fields_schema = (
