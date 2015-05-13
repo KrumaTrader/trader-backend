@@ -1,0 +1,714 @@
+{
+ "kind": "discovery#restDescription",
+ "etag": "\"u_zXkMELIlX4ktyNbM2XKD4vK8E/EkNAvhhMMcEJ_PBlQ0xslyrQSlk\"",
+ "discoveryVersion": "v1",
+ "id": "traderapi:v1",
+ "name": "traderapi",
+ "version": "v1",
+ "description": "API for KrumaTrader",
+ "icons": {
+  "x16": "http://www.google.com/images/icons/product/search-16.gif",
+  "x32": "http://www.google.com/images/icons/product/search-32.gif"
+ },
+ "protocol": "rest",
+ "baseUrl": "https://trader-backend.appspot.com/_ah/api/traderapi/v1/",
+ "basePath": "/_ah/api/traderapi/v1/",
+ "rootUrl": "https://trader-backend.appspot.com/_ah/api/",
+ "servicePath": "traderapi/v1/",
+ "batchPath": "batch",
+ "parameters": {
+  "alt": {
+   "type": "string",
+   "description": "Data format for the response.",
+   "default": "json",
+   "enum": [
+    "json"
+   ],
+   "enumDescriptions": [
+    "Responses with Content-Type of application/json"
+   ],
+   "location": "query"
+  },
+  "fields": {
+   "type": "string",
+   "description": "Selector specifying which fields to include in a partial response.",
+   "location": "query"
+  },
+  "key": {
+   "type": "string",
+   "description": "API key. Your API key identifies your project and provides you with API access, quota, and reports. Required unless you provide an OAuth 2.0 token.",
+   "location": "query"
+  },
+  "oauth_token": {
+   "type": "string",
+   "description": "OAuth 2.0 token for the current user.",
+   "location": "query"
+  },
+  "prettyPrint": {
+   "type": "boolean",
+   "description": "Returns response with indentations and line breaks.",
+   "default": "true",
+   "location": "query"
+  },
+  "quotaUser": {
+   "type": "string",
+   "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters. Overrides userIp if both are provided.",
+   "location": "query"
+  },
+  "userIp": {
+   "type": "string",
+   "description": "IP address of the site where the request originates. Use this if you want to enforce per-user limits.",
+   "location": "query"
+  }
+ },
+ "auth": {
+  "oauth2": {
+   "scopes": {
+    "https://www.googleapis.com/auth/userinfo.email": {
+     "description": "View your email address"
+    }
+   }
+  }
+ },
+ "schemas": {
+  "Message": {
+   "id": "Message",
+   "type": "object",
+   "properties": {
+    "approved": {
+     "type": "boolean"
+    },
+    "body": {
+     "type": "string"
+    },
+    "created_at": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "owner": {
+     "$ref": "UserMessage",
+     "description": "ProtoRPC container for users.User objects. Attributes: email: String; The email of the user. auth_domain: String; The auth domain of the user. user_id: String; The user ID. federated_identity: String; The federated identity of the user."
+    },
+    "recipients": {
+     "type": "array",
+     "description": "ProtoRPC container for users.User objects. Attributes: email: String; The email of the user. auth_domain: String; The auth domain of the user. user_id: String; The user ID. federated_identity: String; The federated identity of the user.",
+     "items": {
+      "$ref": "UserMessage"
+     }
+    },
+    "updated_at": {
+     "type": "string"
+    }
+   }
+  },
+  "MessageCollection": {
+   "id": "MessageCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Message"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "MessageProtoId": {
+   "id": "MessageProtoId",
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "format": "int64"
+    }
+   }
+  },
+  "Product": {
+   "id": "Product",
+   "type": "object",
+   "properties": {
+    "approved": {
+     "type": "boolean"
+    },
+    "brand_name": {
+     "type": "string"
+    },
+    "category": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "color": {
+     "type": "string"
+    },
+    "condition": {
+     "type": "string"
+    },
+    "created_at": {
+     "type": "string"
+    },
+    "description": {
+     "type": "string"
+    },
+    "electrical_rating": {
+     "type": "string"
+    },
+    "gauge_rating": {
+     "type": "string"
+    },
+    "height": {
+     "type": "number",
+     "format": "double"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "item_type": {
+     "type": "string"
+    },
+    "keywords": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "listing_end": {
+     "type": "string"
+    },
+    "listing_start": {
+     "type": "string"
+    },
+    "model": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "owner": {
+     "$ref": "UserMessage",
+     "description": "ProtoRPC container for users.User objects. Attributes: email: String; The email of the user. auth_domain: String; The auth domain of the user. user_id: String; The user ID. federated_identity: String; The federated identity of the user."
+    },
+    "payment_method": {
+     "type": "string"
+    },
+    "power_rating": {
+     "type": "string"
+    },
+    "price": {
+     "type": "number",
+     "format": "double"
+    },
+    "quantity": {
+     "type": "number",
+     "format": "double"
+    },
+    "ship_within": {
+     "type": "string",
+     "format": "int64"
+    },
+    "shipping_method": {
+     "type": "string"
+    },
+    "size_rating": {
+     "type": "string"
+    },
+    "strength_rating": {
+     "type": "string"
+    },
+    "updated_at": {
+     "type": "string"
+    },
+    "weight": {
+     "type": "number",
+     "format": "double"
+    },
+    "width": {
+     "type": "number",
+     "format": "double"
+    }
+   }
+  },
+  "ProductCollection": {
+   "id": "ProductCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "Product"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "User": {
+   "id": "User",
+   "type": "object",
+   "properties": {
+    "approved": {
+     "type": "boolean"
+    },
+    "city": {
+     "type": "string"
+    },
+    "country": {
+     "type": "string"
+    },
+    "created_at": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string",
+     "format": "int64"
+    },
+    "industry": {
+     "type": "string"
+    },
+    "location": {
+     "type": "string"
+    },
+    "name": {
+     "type": "string"
+    },
+    "owner": {
+     "$ref": "UserMessage",
+     "description": "ProtoRPC container for users.User objects. Attributes: email: String; The email of the user. auth_domain: String; The auth domain of the user. user_id: String; The user ID. federated_identity: String; The federated identity of the user."
+    },
+    "postal_code": {
+     "type": "string"
+    },
+    "shipping_address": {
+     "type": "string"
+    },
+    "size": {
+     "type": "string",
+     "format": "int64"
+    },
+    "updated_at": {
+     "type": "string"
+    },
+    "url": {
+     "type": "string"
+    },
+    "year_founded": {
+     "type": "string",
+     "format": "int64"
+    }
+   }
+  },
+  "UserCollection": {
+   "id": "UserCollection",
+   "type": "object",
+   "properties": {
+    "items": {
+     "type": "array",
+     "items": {
+      "$ref": "User"
+     }
+    },
+    "nextPageToken": {
+     "type": "string"
+    }
+   }
+  },
+  "UserMessage": {
+   "id": "UserMessage",
+   "type": "object",
+   "description": "ProtoRPC container for users.User objects. Attributes: email: String; The email of the user. auth_domain: String; The auth domain of the user. user_id: String; The user ID. federated_identity: String; The federated identity of the user.",
+   "properties": {
+    "auth_domain": {
+     "type": "string"
+    },
+    "email": {
+     "type": "string"
+    },
+    "federated_identity": {
+     "type": "string"
+    },
+    "user_id": {
+     "type": "string"
+    }
+   }
+  }
+ },
+ "resources": {
+  "messages": {
+   "methods": {
+    "delete": {
+     "id": "traderapi.messages.delete",
+     "path": "messages/{id}",
+     "httpMethod": "DELETE",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "response": {
+      "$ref": "Message"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "get": {
+     "id": "traderapi.messages.get",
+     "path": "messages/{id}",
+     "httpMethod": "GET",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "response": {
+      "$ref": "Message"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "index": {
+     "id": "traderapi.messages.index",
+     "path": "messages",
+     "httpMethod": "GET",
+     "response": {
+      "$ref": "MessageCollection"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "insert": {
+     "id": "traderapi.messages.insert",
+     "path": "messages",
+     "httpMethod": "POST",
+     "request": {
+      "$ref": "Message",
+      "parameterName": "resource"
+     },
+     "response": {
+      "$ref": "Message"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "patch": {
+     "id": "traderapi.messages.patch",
+     "path": "messages/{id}",
+     "httpMethod": "PATCH",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "request": {
+      "$ref": "MessageProtoId"
+     },
+     "response": {
+      "$ref": "Message"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "update": {
+     "id": "traderapi.messages.update",
+     "path": "messages/{id}",
+     "httpMethod": "PUT",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "request": {
+      "$ref": "MessageProtoId",
+      "parameterName": "resource"
+     },
+     "response": {
+      "$ref": "Message"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    }
+   }
+  },
+  "products": {
+   "methods": {
+    "delete": {
+     "id": "traderapi.products.delete",
+     "path": "products/{id}",
+     "httpMethod": "DELETE",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "get": {
+     "id": "traderapi.products.get",
+     "path": "products/{id}",
+     "httpMethod": "GET",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "response": {
+      "$ref": "Product"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "index": {
+     "id": "traderapi.products.index",
+     "path": "products",
+     "httpMethod": "GET",
+     "response": {
+      "$ref": "ProductCollection"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "insert": {
+     "id": "traderapi.products.insert",
+     "path": "products",
+     "httpMethod": "POST",
+     "request": {
+      "$ref": "Product",
+      "parameterName": "resource"
+     },
+     "response": {
+      "$ref": "Product"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "patch": {
+     "id": "traderapi.products.patch",
+     "path": "products/{id}",
+     "httpMethod": "PATCH",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "request": {
+      "$ref": "Product"
+     },
+     "response": {
+      "$ref": "Product"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "update": {
+     "id": "traderapi.products.update",
+     "path": "products/{id}",
+     "httpMethod": "PUT",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "request": {
+      "$ref": "Product",
+      "parameterName": "resource"
+     },
+     "response": {
+      "$ref": "Product"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    }
+   }
+  },
+  "users": {
+   "methods": {
+    "delete": {
+     "id": "traderapi.users.delete",
+     "path": "users/{id}",
+     "httpMethod": "DELETE",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "get": {
+     "id": "traderapi.users.get",
+     "path": "users/{id}",
+     "httpMethod": "GET",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "response": {
+      "$ref": "User"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "index": {
+     "id": "traderapi.users.index",
+     "path": "users",
+     "httpMethod": "GET",
+     "response": {
+      "$ref": "UserCollection"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "insert": {
+     "id": "traderapi.users.insert",
+     "path": "users",
+     "httpMethod": "POST",
+     "request": {
+      "$ref": "User",
+      "parameterName": "resource"
+     },
+     "response": {
+      "$ref": "User"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "patch": {
+     "id": "traderapi.users.patch",
+     "path": "users/{id}",
+     "httpMethod": "PATCH",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "request": {
+      "$ref": "User"
+     },
+     "response": {
+      "$ref": "User"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    },
+    "update": {
+     "id": "traderapi.users.update",
+     "path": "users/{id}",
+     "httpMethod": "PUT",
+     "parameters": {
+      "id": {
+       "type": "string",
+       "required": true,
+       "format": "int64",
+       "location": "path"
+      }
+     },
+     "parameterOrder": [
+      "id"
+     ],
+     "request": {
+      "$ref": "User",
+      "parameterName": "resource"
+     },
+     "response": {
+      "$ref": "User"
+     },
+     "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email"
+     ]
+    }
+   }
+  }
+ }
+}
